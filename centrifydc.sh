@@ -475,8 +475,8 @@ function clean_files()
 function vault()
 {
 	    
-	export VAULTED_ACCOUNTS=local-manager,local-user
-	export LOGIN_ROLES="System Administrator"
+	VAULTED_ACCOUNTS=local-manager,local-user
+	LOGIN_ROLES="System Administrator"
 	echo "post hook script started." >> /var/centrify/tmp/vaultaccount.log
 	Permissions=()
 	Field_Separator=$IFS
@@ -490,7 +490,7 @@ function vault()
 	IFS=","
 	sleep 10
 	for account in $VAULTED_ACCOUNTS; do
-	   export PASS=`openssl rand -base64 20`
+	   PASS=`openssl rand -base64 20`
 	   if id -u $account > /dev/null 2>&1; then
 	      echo $PASS | passwd --stdin $account
 	   else
