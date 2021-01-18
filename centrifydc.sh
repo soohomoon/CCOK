@@ -555,7 +555,7 @@ function start_deploy()
     #install_packages
     #r=$? && [ $r -ne 0 ] && return $r
     
-    vault
+    
   
     if [ "$CENTRIFYDC_JOIN_TO_AD" = "yes" ];then
       get_keytab_file
@@ -575,6 +575,8 @@ function start_deploy()
       
       #do_adedit
       #r=$? && [ $r -ne 0 ] && return $r
+      
+      vault
 
       install_leave_join_service
     fi
